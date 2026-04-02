@@ -90,7 +90,7 @@ def grade(*args):
             return "F"
         # Error handling for ZeroDivisionError and TypeError    
     except (ZeroDivisionError, TypeError):
-        return "Invalid input. Please provide numeric grades."
+        return "Invalid data was provided."
 
 # Manual Test(debugging)
 print(grade(95, 85, 90))  # return: A
@@ -168,32 +168,31 @@ print(hangman("apple", "xyz"))    # returns: "______"
 
 # Task 10: Fibonacci Sequence, with a While Loop
 def pig_latin(sentence):
-    vowels= "aeiou"
-    words = sentence.split()
+    vowels = "aeiou"
+    words = sentence.lower().split()
     result = []
+    
     for word in words:
-        word = word.lower()
-        vowels = "aeiou"
-        # (1) If starts with a vowel (aeiou), "ay" is tacked onto the end
+        # Rule 1: Starts with a vowel
         if word[0] in vowels:
-            result.append(word + "ay")      
+            result.append(word + "ay")
         else:
-        # (3)"qu": is a special case, as both of them get moved to the end of the word, as if they were one consonant letter.
-            if word.startswith("qu"):
-                cutoff = 2
-            else:
-                # (2) If the string starts with one or several consonants, they are moved to the end and "ay" is tacked on after them. 
-                cutoff = 0
-                cutoff = 0
-                for i, char in enumerate(word):
-                    if char in vowels:
-                        cutoff = i
-                        break
+            # Rules 2 & 3: Find the first vowel, but treat 'qu' as a consonant pair
+            cutoff = 0
+            for i, char in enumerate(word):
+                if char in vowels:
+                    # If we find a 'u' and the previous char was 'q', 
+                    # the vowel 'u' is treated as part of the consonant cluster.
+                    if char == 'u' and i > 0 and word[i-1] == 'q':
+                        continue 
+                    cutoff = i
+                    break
             
-            # Move consonants to end and add "ay"
             new_word = word[cutoff:] + word[:cutoff] + "ay"
             result.append(new_word)
-    return " ".join(result) 
+            
+    return " ".join(result)
+
 
 # Manual Test(debugging)
 print(pig_latin("apple"))        # appleay (Rule 1)
