@@ -20,11 +20,11 @@ try:
             user_input = input("What else? ")
 
             # write the line recieved to diary.txt, with a newline (\n) at the end
-            diary_file.write(user_input + "\n")
+         diary_file.write(user_input + "\n")
 
             # When "done for now" is received, write to diary.txt and exit the loop
 
-            if user_input.lower() == "done for now" :
+         if user_input.lower() == "done for now" :
                break
          
 
