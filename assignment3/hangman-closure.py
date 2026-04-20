@@ -2,7 +2,7 @@
 
 # # Task 4: step 2
 # Declare a function called make_hangman() that has one argument called secret_word
-def make_handman(secret_word):
+def make_hangman(secret_word):
     # declare an empty array called guesses
     guesses = []
 
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     #  Use the input() function to prompt for the secret word
     secret = input("Enter the secret word: ").strip()
 
-    play_round = make_handman(secret)
+    play_round = make_hangman(secret)
     
     is_finished = False
     print("\nGame started!")

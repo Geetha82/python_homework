@@ -18,7 +18,7 @@ class Point:
 
     # include methods for string
     def __str__(self):
-        return f"Pint({self.x}, {self.y})"
+        return f"Point({self.x}, {self.y})"
     
     # include methods for Euclidian distance to another point
     def distance(self, other):

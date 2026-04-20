@@ -56,6 +56,8 @@ class Board:
         column = move_index % 3 #column
         if self.board_array[row][column] != " ":
             raise TictactoeException("That spot is taken.")
+        self.last_move = move_string
+
         self.board_array[row][column] = self.turn
         if self.turn == "X":
             self.turn = "O"
@@ -101,10 +103,10 @@ class Board:
         # Determine return state            
         if  win:
             # if win is true then winner is the player who just moved
-            winner = "0" if self.turn == "X" else "x"
-            return (True, f"{winner} wins")
+            winner = "X" if self.turn == "O" else "O"
+            return (True, f"{winner} has won")
         if cat:
-            return(True, "CAt's Game.")
+            return(True, "Cat's Game.")
         return(False, f"{self.turn}'s turn.")
     
 # Mainline Game loop

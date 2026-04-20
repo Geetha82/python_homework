@@ -41,12 +41,14 @@ def hello():
 
 #Task1 -step 4
 # Declare a function that takes a variable number of positional arguments and returns True
+@logger_decorator
 def check_position(*args):
     return True
 
 
 #Task1 -step 5
 # Declare a function that takes no positional arguments and a variable number of keyword arguments, and that returns logger_decorator
+@logger_decorator
 def return_decorator(**kwargs):
     return logger_decorator
 
