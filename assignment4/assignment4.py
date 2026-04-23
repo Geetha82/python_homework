@@ -127,7 +127,7 @@ print(clean_data)
 clean_data['Age'] = pd.to_numeric(clean_data['Age'], errors='coerce')
 
 # handle missing values and print
-clean_data['Age'] = clean_data['Age'].fillna(clean_data['Age']).mean()
+clean_data['Age'] = clean_data['Age'].fillna(clean_data['Age'].mean())
 print(clean_data)
 
 # Task 4 - Convert Salary to numeric, replace known placeholders (unknown, n/a) with NaN and print
