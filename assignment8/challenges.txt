@@ -1,0 +1,27 @@
+==============================================================================
+Assignment 8 - Challenge Log & Resolution Report (challenges.txt)
+==============================================================================
+
+
+Challenge 1 : Deprecated DOM Container IDs and Layout Traps
+------------------------------------------------------------------------------
+* Problem: Initial inspection notes for Task 2 suggested targeting elements like 
+  "cp-search-result-item" or OWASP's "main_content" ID wrapper. However, recent 
+  client-side framework structural updates on both target sites caused these literal 
+  selectors to return zero matches or throw element collection exceptions.
+* Resolution: Broadened search rules away from rigid ID strings. Implemented a 
+  semantic XPath approach ("//li.row.cp-search-result-item" and global "//*[contains()]" 
+  lookups) combined with strict string filter validation hooks (e.g., checking if 
+  text nodes started with official category headers like "A01" through "A10") to 
+  isolate data reliably regardless of layout changes.
+
+Challenge 2: Hidden Type Errors (List objects vs. Flat Strings) in Data Frames
+------------------------------------------------------------------------------
+* Problem: In early test iterations of the loop, splitting raw string components 
+  accidentally stored data variables inside a Python list object structure inside 
+  individual cells. When Pandas attempted to process and validate columns containing 
+  nested arrays, it threw hidden Type errors that bypassed extraction code blocks and 
+  rendered empty rows or broken tabular fields.
+* Resolution: Enforced strict flat text extraction inside independent try/except isolation 
+  blocks. Ensured all extracted nodes were processed into pure strings prior to appending 
+  them to the results dictionary container, which stabilized the data layout.
