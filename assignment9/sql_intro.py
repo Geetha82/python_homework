@@ -179,7 +179,7 @@ def main():
         add_publisher_data(cursor, "Dotdash Meredith")
 
         # TASK 3: Add at least 3 entries to Magazines table
-        add_magazine_data(cursor, "Vogue", "Conds Nast")
+        add_magazine_data(cursor, "Vogue", "Condé Nast")
         add_magazine_data(cursor, "Cosmopolitan", "Hearst Communications")
         add_magazine_data(cursor, "Better Homes & Gardens", "Dotdash Meredith")
 
@@ -215,7 +215,7 @@ def main():
         print("_" * 50)
 
         # Write a query to find magazines for a particular publisher, one of the publishers you created. This requires a JOIN.
-        selected_publisher = "Conde Nast"
+        selected_publisher = "Condé Nast"
         print("Query 3: Magazines publishes by '{selected_publisher}'")
         cursor.execute("""
             SELECT magazines.id, magazines.name
