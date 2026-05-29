@@ -199,7 +199,7 @@ def main():
         print("Database successfully populated and saved.")
 
         # Task 4: Write SQL Queries
-        print("Task 4: Execute SQL Queries")
+        print("\n" + "-"*40 + "\nTask 4: Execute SQL Queries:\n")
         # Write a query to retrieve all information from the subscribers table.
         print("Query 1: All Subscribers Information")
         cursor.execute("SELECT * FROM subscribers;")
@@ -216,7 +216,8 @@ def main():
 
         # Write a query to find magazines for a particular publisher, one of the publishers you created. This requires a JOIN.
         selected_publisher = "Condé Nast"
-        print("Query 3: Magazines publishes by '{selected_publisher}'")
+        print(f'Query 3: Magazines published by {selected_publisher}')
+        
         cursor.execute("""
             SELECT magazines.id, magazines.name
             FROM magazines
